@@ -20,3 +20,12 @@ Frontend: HTML5, CSS3, JavaScript
 Backend: Python (Flask) 
 Machine Learning: Scikit-learn, Pandas, NumPy
 Deployment: Render.com
+
+👨‍💻 Developed By
+NIRANJAN ANANDAN 
+          ~ B.Sc. Artificial Intelligence and Machine Learning
+          ~ Rathinavel Subramanian College of Arts and Science,Sulur,Coimbatore
+CONTACT : 
+          Gmail: niranjannj2229@gmail.com
+          GITHUB: https://github.com/Niranjan2229
+          LinkedIn: www.linkedin.com/in/niranjan-anandan
