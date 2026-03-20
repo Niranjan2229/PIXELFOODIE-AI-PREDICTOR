@@ -5,57 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PixelFoodie AI | Smart Recommender</title>
     <style>
-        /* Apple-style Dark Theme */
+        /* Apple-style Dark Theme with Premium Background */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #000;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                        url('{{ url_for("static", filename="images/recipe-bg.png") }}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            overflow: hidden;
         }
+
+        /* Glassmorphism Card Effect */
         .card {
-            background: #1c1c1e;
+            background: rgba(28, 28, 30, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 40px;
-            border-radius: 20px; /* Rounded borders */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            width: 350px;
+            border-radius: 28px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            width: 380px;
             text-align: center;
-            border: 1px solid #3a3a3c;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.8s ease-out;
         }
-        h1 { font-weight: 600; font-size: 24px; margin-bottom: 20px; color: #ff3b30; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { 
+            font-weight: 700; 
+            font-size: 28px; 
+            margin-bottom: 24px; 
+            color: #ff3b30; 
+            letter-spacing: -0.5px;
+        }
+
         select, input {
             width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 12px;
-            border: none;
-            background: #2c2c2e;
+            padding: 14px;
+            margin: 12px 0;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(44, 44, 46, 0.8);
             color: white;
-            font-size: 14px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
         }
+
+        select:focus, input:focus {
+            border-color: #ff3b30;
+            background: rgba(58, 58, 60, 0.9);
+            box-shadow: 0 0 0 4px rgba(255, 59, 48, 0.2);
+        }
+
         button {
             width: 100%;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 12px;
+            padding: 16px;
+            margin-top: 24px;
+            border-radius: 14px;
             border: none;
-            background: #ff3b30;
+            background: linear-gradient(135deg, #ff3b30, #ff2d55);
             color: white;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 16px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 15px rgba(255, 59, 48, 0.3);
         }
-        button:hover { background: #ff453a; transform: scale(1.02); }
+
+        button:hover { 
+            transform: translateY(-2px) scale(1.02); 
+            box-shadow: 0 12px 20px rgba(255, 59, 48, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0) scale(0.98);
+        }
+
         .result {
-            margin-top: 25px;
-            padding: 15px;
-            background: #2c2c2e;
-            border-radius: 12px;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(50, 215, 75, 0.15);
+            border: 1px solid rgba(50, 215, 75, 0.3);
+            border-radius: 16px;
             color: #32d74b;
             font-weight: 600;
+            font-size: 17px;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
